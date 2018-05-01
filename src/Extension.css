@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css?family=Heebo:400,700,900");
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+#ext--dialogue, #ext--dialogue *, #ext--dialogue *:before, #ext--dialoguer *:after {
+  box-sizing: border-box; }
+
+#ext--dialogue {
+  position: fixed;
+  z-index: 2147483647;
+  right: 0;
+  top: 0;
+  background: #454242;
+  color: #f5f3f3;
+  font-family: "Heebo", sans-serif;
+  font-size: 14px !important;
+  text-align: center;
+  width: 300px;
+  min-height: 200px;
+  max-height: 75vh;
+  cursor: auto;
+  user-select: none;
+  padding-bottom: 54px;
+  box-shadow: -8px 8px 16px 3px rgba(43, 41, 41, 0.1);
+  transition: all 260ms ease-in-out; }
+  #ext--dialogue div.current {
+    padding: 11px;
+    max-height: 50vh;
+    overflow-y: scroll; }
+    #ext--dialogue div.current img {
+      width: 100%; }
+  #ext--dialogue div.current + div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #2b2929; }
+  #ext--dialogue [class*="button"] {
+    display: inline-block;
+    width: 50%;
+    background: none;
+    border: none;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 400;
+    color: #0090ff;
+    text-transform: uppercase;
+    padding: 22px !important;
+    line-height: 10px;
+    cursor: pointer;
+    transition: all 260ms ease-in-out; }
+    #ext--dialogue [class*="button"]:nth-of-type(1) {
+      border-right: 1px solid #454242; }
+    #ext--dialogue [class*="button"]:active {
+      opacity: 0.5; }
+  #ext--dialogue .processing--msg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; }
+    #ext--dialogue .processing--msg div {
+      border: 8px solid #91ff26;
+      border-left-color: rgba(145, 255, 38, 0.25);
+      border-top-color: rgba(145, 255, 38, 0.25);
+      display: block;
+      width: 44px;
+      height: 44px;
+      border-radius: 100%;
+      margin: auto;
+      animation-name: spinner;
+      animation-iteration-count: infinite;
+      animation-duration: 1s;
+      animation-timing-function: linear; }
+    #ext--dialogue .processing--msg p {
+      text-transform: uppercase;
+      padding: 0 44px;
+      color: #f5f3f3 !important;
+      font-size: 14px !important;
+      font-family: "Heebo", sans-serif !important;
+      line-height: 18px !important;
+      font-weight: 700 !important; }
+    #ext--dialogue .processing--msg img {
+      width: 122px;
+      display: block;
+      margin: auto;
+      margin-bottom: 22px; }
+
+.jk--chrome--extension--wrapper {
+  cursor: copy;
+  box-sizing: border-box; }
+  .jk--chrome--extension--wrapper *, .jk--chrome--extension--wrapper *:before, .jk--chrome--extension--wrapper *:after {
+    box-sizing: inherit; }
+
+body#jk--chrome--extension--body {
+  min-height: 100vh; }
+  body#jk--chrome--extension--body.processing .jk--chrome--extension--wrapper {
+    cursor: progress; }
+  body#jk--chrome--extension--body.processing #jk--chrome--extension--target {
+    visibility: hidden !important; }
+  body#jk--chrome--extension--body.processing #ext--dialogue {
+    transform: translateY(-120%); }
+
+body#jk--chrome--extension--body #jk--chrome--extension--target {
+  position: absolute;
+  z-index: 999999999;
+  top: 0;
+  left: 0;
+  min-height: 22px;
+  min-width: 44px;
+  border: 4px solid #91ff26;
+  transition: all 260ms ease-in-out;
+  background: rgba(145, 255, 38, 0.1);
+  pointer-events: none; }
+  body#jk--chrome--extension--body #jk--chrome--extension--target.on {
+    border-color: crimson; }
+  body#jk--chrome--extension--body #jk--chrome--extension--target:after {
+    content: attr(data-label);
+    position: absolute;
+    left: -4px;
+    bottom: -26px;
+    height: 22px;
+    background: rgba(145, 255, 38, 0.85);
+    color: #2b2929;
+    padding: 8px;
+    font-size: 11px;
+    line-height: 4px;
+    text-transform: uppercase;
+    font-family: monospace;
+    font-weight: 600;
+    transition: all 260ms ease-in-out; }
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(359deg); } }
+
+.box {
+  position: relative;
+  margin: 44px;
+  border: 2px solid #0090ff;
+  padding: 22px;
+  font-family: "Heebo", sans-serif;
+  color: #2b2929;
+  max-width: 420px;
+  min-width: 300px;
+  background: #66bcff;
+  display: block; }
